@@ -1,0 +1,32 @@
+
+
+.topbarContainer {
+    background-color: #2c517c;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center; /* 中央にする */
+    position: sticky; /* 上部に常に固定 */
+    top: 0;
+    z-index: 100;
+}
+
+/* flexで3:5:4に分ける */
+
+.topbarLeft {
+    flex: 3; /* 3/12 の比率で割り当て */
+}
+
+.logo {
+    font-size: 24px;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.topbarCenter {
+    flex: 5; /* 5/12 の比率で割り当て */
+}
+.topbarRight {
+    flex: 4; /* 4/12 の比率で割り当て */
+}
