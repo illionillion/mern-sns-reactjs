@@ -1,3 +1,4 @@
+import { Chat, Notifications, Search } from '@mui/icons-material'
 import React from 'react'
 
 export default function Topbar() {
@@ -10,6 +11,7 @@ export default function Topbar() {
         <div className="topbarCenter">
             {/* 真ん中のサーチバー */}
             <div className="searchbar">
+                <Search className='searchIcon'/>
                 <input
                  type="text"
                  className='searchInput'
@@ -18,8 +20,15 @@ export default function Topbar() {
             </div>
         </div>
         <div className="topbarRight">
-            <div className="topbarIconIyem">{/* マテリアルUI使う */}1</div>
-            <div className="topbarIconIyem">2</div>
+            <div className="topbarIconIyem">
+                {/* マテリアルUI使う */}
+                <Chat />
+                <span className="topbarIconBadge">1</span>
+            </div>
+            <div className="topbarIconIyem">
+                <Notifications />
+                <span className="topbarIconBadge">2</span>
+            </div>
         </div>
         {/* 画像フォルダはpublicディレクトリにある */}
         <img src="./assets/person/1.jpeg" alt="アイコン" className='topbarImg' />
