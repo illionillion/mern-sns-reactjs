@@ -21,6 +21,7 @@ export default function Topbar() {
             <div className="topbarIconIyem">{/* マテリアルUI使う */}1</div>
             <div className="topbarIconIyem">2</div>
         </div>
+        {/* 画像フォルダはpublicディレクトリにある */}
         <img src="./assets/person/1.jpeg" alt="アイコン" className='topbarImg' />
     </div>
   )
