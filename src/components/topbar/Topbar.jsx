@@ -12,9 +12,12 @@ export default function Topbar() {
         <div className="topbarCenter">
             {/* 真ん中のサーチバー */}
             <div className="searchbar">
-                <Search className='searchIcon'/>
+                {/* <label htmlFor="searchInput"> */}
+                    <Search className='searchIcon'/>
+                {/* </label> */}
                 <input
                  type="text"
+                 id='searchInput'
                  className='searchInput'
                  placeholder='何を探しますか？'
                 />
