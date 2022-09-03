@@ -24,18 +24,22 @@ export default function Topbar() {
             </div>
         </div>
         <div className="topbarRight">
-            <div className="topbarIconIyem">
-                {/* マテリアルUI使う */}
-                <Chat />
-                <span className="topbarIconBadge">1</span>
-            </div>
-            <div className="topbarIconIyem">
-                <Notifications />
-                <span className="topbarIconBadge">2</span>
+            <div className="topbarItemIcons">
+                <div className="topbarIconItem">
+                    {/* マテリアルUI使う */}
+                    <Chat />
+                    <span className="topbarIconBadge">4</span>
+                </div>
+                <div className="topbarIconItem">
+                    <Notifications />
+                    <span className="topbarIconBadge">2</span>
+                </div>
+                <div className="topbarIconItem">
+                    {/* 画像フォルダはpublicディレクトリにある */}
+                    <img src="./assets/person/1.jpeg" alt="アイコン" className='topbarImg' />
+                </div>
             </div>
         </div>
-        {/* 画像フォルダはpublicディレクトリにある */}
-        <img src="./assets/person/1.jpeg" alt="アイコン" className='topbarImg' />
     </div>
   )
 }
