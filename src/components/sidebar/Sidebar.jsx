@@ -46,6 +46,22 @@ export default function Sidebar() {
             />
             <span className="sidebarFriendName">illion</span>
           </li>
+          <li className="sidebarFriend">
+            <img 
+              src="./assets/person/3.jpeg" 
+              alt="フレンドアイコン" 
+              className='sidebarFriendImg'
+            />
+            <span className="sidebarFriendName">sei</span>
+          </li>
+          <li className="sidebarFriend">
+            <img 
+              src="./assets/person/4.jpeg" 
+              alt="フレンドアイコン" 
+              className='sidebarFriendImg'
+            />
+            <span className="sidebarFriendName">vba</span>
+          </li>
         </ul>
       </div>
     </div>

@@ -19,10 +19,53 @@
     margin-bottom: 10px;
     padding: 4px 6px;
     cursor: pointer;
+    transition: 0.8ms;
+    /* 
+        ボックスシャドウジェネレータを使う 
+        https://hiroyuki-n.github.io/boxShadow_generator/
+    */
+    /* box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5); */
+    box-shadow: 3px 7px 13px -10px #65789f;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+.sidebarListItem:hover {
+    /* 沈み込ませる風のアニメーション */
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+.sidebarListItem > .sidebarIcon {
+    font-size: 35px;
+    margin-right: 10px;
+}
+
+.sidebarListItemText {
+    font-size: 20px;
+    padding-top: 3px;
+}
+
+.sidebarHr {
+    margin: 20px 0;
 }
 
 .sidebarFriendImg {
     width: 32px;
     height: 32px;
-    /* object-fit: cover; */
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
 }
+
+.sidebarFriendList {
+    padding: 0;
+    margin: 0%;
+    list-style: none;
+}
+
+.sidebarFriend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
