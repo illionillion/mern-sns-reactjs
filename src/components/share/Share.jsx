@@ -7,26 +7,27 @@ export default function Share() {
     <div className='share'>
         <div className="shareWrapper">
             <div className="shareTop">
-                <img src="./assets/person/1.jpeg" alt="" />
+                <img src="./assets/person/1.jpeg" alt="" className='shareProfileImg' />
                 <input type="text" className="shareInput" placeholder='今何してん？'/>
             </div>
             <hr className="shareHr" />
             <div className="shareButtons">
                 <div className="shareOptions">
                     <div className="shareOption">
-                        <Image className='shareIcon'/>
+                        {/* MUI、htmlColorで色変えれる */}
+                        <Image className='shareIcon' htmlColor='blue'/>
                         <span className="shareOptionText">写真</span>
                     </div>
                     <div className="shareOption">
-                        <Gif className='shareIcon'/>
+                        <Gif className='shareIcon' htmlColor='hotpink'/>
                         <span className="shareOptionText">Gif</span>
                     </div>
                     <div className="shareOption">
-                        <Face className='shareIcon'/>
+                        <Face className='shareIcon' htmlColor='green'/>
                         <span className="shareOptionText">気持ち</span>
                     </div>
                     <div className="shareOption">
-                        <Analytics className='shareIcon'/>
+                        <Analytics className='shareIcon' htmlColor='red'/>
                         <span className="shareOptionText">投票</span>
                     </div>
                 </div>
