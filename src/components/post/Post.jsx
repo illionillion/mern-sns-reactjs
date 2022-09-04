@@ -3,12 +3,17 @@ import React from 'react'
 import './Post.css'
 import { Users } from '../../dummyData';
 
+/**
+ * １投稿のカード
+ * @param {object} param0 post
+ * @returns {JSX.Element}
+ */
 export default function Post({post}) {
     // 引数のPOSTを取得
 
     const user = Users.filter(user => user.id === post.id)[0] // filterでIDが同じものを取ってくる
     // console.log(user);
-    
+
     return (
         <article className='post'>
             <div className="postWrapper">

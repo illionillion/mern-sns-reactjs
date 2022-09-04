@@ -1,5 +1,7 @@
 import React from 'react'
 import './Rightbar.css'
+import Online from '../online/Online'
+import { Users } from '../../dummyData'
 
 export default function Rightbar() {
   return (
@@ -14,27 +16,9 @@ export default function Rightbar() {
         <img src="./assets/event.jpeg" alt="イベント画像" className='eventImg' />
         <h4 className="rightbarTitle">オンラインの友達</h4>
         <ul className="rightbarFriendList">
-          <li className="rightbarFriend">
-            <div className="rightbarProfileImgContainer">
-              <img src="./assets/person/1.jpeg" alt="ユーザーアイコン" className='rightbarProfileImg' />
-              <span className="rightbarOnline">{/* ピンクのやつなので空 */}</span>
-            </div>
-            <span className="rightbarUsername">illion</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rightbarProfileImgContainer">
-              <img src="./assets/person/1.jpeg" alt="ユーザーアイコン" className='rightbarProfileImg' />
-              <span className="rightbarOnline">{/* ピンクのやつなので空 */}</span>
-            </div>
-            <span className="rightbarUsername">illion</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rightbarProfileImgContainer">
-              <img src="./assets/person/2.jpeg" alt="ユーザーアイコン" className='rightbarProfileImg' />
-              <span className="rightbarOnline">{/* ピンクのやつなので空 */}</span>
-            </div>
-            <span className="rightbarUsername">illion</span>
-          </li>
+          {Users.map(user => (
+            <Online user={user} key={user.id} />
+          ))}
         </ul>
         <p className="promotionTitle">プロモーション広告</p>
         <img src="./assets/promotion/promotion1.jpeg" alt="広告画像" className='rightbarPromotionImg' />
