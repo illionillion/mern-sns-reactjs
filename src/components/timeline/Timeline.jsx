@@ -5,11 +5,11 @@ import './TimeLine.css'
 
 export default function Timeline() {
   return (
-    <div className='timeline'>
+    <section className='timeline'>
       <div className="timelineWrapper">
         <Share />
         <Post />
       </div>
-    </div>
+    </section>
   )
 }

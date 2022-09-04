@@ -4,7 +4,7 @@ import './Topbar.css'
 
 export default function Topbar() {
   return (
-    <div className='topbarContainer'>
+    <header className='topbarContainer'>
         <div className="topbarLeft">
             {/* トップバーの左のところのアイコンを作っている */}
             <span className='logo'>Real-SNS</span>
@@ -40,6 +40,6 @@ export default function Topbar() {
                 </div>
             </div>
         </div>
-    </div>
+    </header>
   )
 }

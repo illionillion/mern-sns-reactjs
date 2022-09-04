@@ -3,6 +3,6 @@ import './Rightbar.css'
 
 export default function Rightbar() {
   return (
-    <div className='rightbar'>Rightbar</div>
+    <aside className='rightbar'>Rightbar</aside>
   )
 }

@@ -4,7 +4,7 @@ import './Sidebar.css'
 
 export default function Sidebar() {
   return (
-    <div className='sidebar'>
+    <nav className='sidebar'>
       <div className="sidebarWrapper">
         <ul className="sidebarList">
           <li className="sidebarListItem">
@@ -64,6 +64,6 @@ export default function Sidebar() {
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   )
 }

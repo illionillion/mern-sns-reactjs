@@ -4,7 +4,7 @@ import './Post.css'
 
 export default function Post() {
   return (
-    <div className='post'>
+    <article className='post'>
         <div className="postWrapper">
             <div className="postTop">
                 <img src='./assets/person/1.jpeg' alt="投稿アイコン" className='postProfileImg' />
@@ -28,6 +28,6 @@ export default function Post() {
                 </div>
             </div>
         </div>
-    </div>
+    </article>
   )
 }
