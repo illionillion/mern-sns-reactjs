@@ -1,5 +1,5 @@
 import { MoreVert } from '@mui/icons-material'
-import React from 'react'
+import React, { useState } from 'react'
 import './Post.css'
 import { Users } from '../../dummyData';
 
@@ -10,6 +10,16 @@ import { Users } from '../../dummyData';
  */
 export default function Post({post}) {
     // 引数のPOSTを取得
+
+
+    const [like, setLike] = useState(post.like)
+    const [isLiked, setIsLiked] = useState(false) // いいねしたかどうかのフラグ
+
+    const handleLike = () => {
+        // isLikedがtrueならすでに押されているので-1、その逆は+1
+        setLike(isLiked ? like - 1 : like + 1)
+        setIsLiked(!isLiked)
+    }
 
     const user = Users.filter(user => user.id === post.id)[0] // filterでIDが同じものを取ってくる
     // console.log(user);
@@ -33,8 +43,8 @@ export default function Post({post}) {
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img src="./assets/heart.png" alt="いいねアイコン" className='likeIcon' />
-                        <span className="postLikeCounter">{post.like}人がいいねをしました</span>
+                        <img src="./assets/heart.png" alt="いいねアイコン" className='likeIcon' onClick={() => handleLike()}/>
+                        <span className="postLikeCounter">{like}人がいいねをしました</span>
                     </div>
                     <div className="postBottomRight">
                         <span className="postCommentText">{post.comment}:コメント</span>
