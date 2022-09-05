@@ -3,6 +3,7 @@ import React from 'react'
 import './Sidebar.css'
 import { Users } from '../../dummyData'
 import Friend from '../friend/Friend'
+import { NavLink } from 'react-router-dom'
 
 export default function Sidebar() {
   return (
@@ -10,8 +11,8 @@ export default function Sidebar() {
       <div className="sidebarWrapper">
         <ul className="sidebarList">
           <li className="sidebarListItem">
-            <Home className='sidebarIcon' />
-            <span className="sidebarListItemText">ホーム</span>
+              <Home className='sidebarIcon' />
+              <span className="sidebarListItemText">ホーム</span>
           </li>
           <li className="sidebarListItem">
             <Search className='sidebarIcon' />
