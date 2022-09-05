@@ -11,8 +11,21 @@ export default function Profile() {
       <Topbar />
       <div className="profile">
           <Sidebar />
-          <Timeline />
-          <Rightbar />
+          <div className="profileRight">
+            <div className="profileRightTop">
+              <div className="profileCover">
+                <img src="./assets/post/3.jpeg" alt="画像" className='profileCoverImg' />
+                <img src="./assets/person/1.jpeg" alt="アイコン" className='profileUserImg' />
+              </div>
+              <div className="profileInfo">
+                <h4 className='profileInfoName'>illion</h4>
+                <span className="profileInfoDesc">学生プログラマー</span>
+              </div>
+            </div>
+            <div className="profileRightBottom"></div>
+            <Timeline />
+            <Rightbar />
+          </div>
       </div> 
     </>
   )
