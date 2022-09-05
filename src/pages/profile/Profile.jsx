@@ -22,9 +22,10 @@ export default function Profile() {
                 <span className="profileInfoDesc">学生プログラマー</span>
               </div>
             </div>
-            <div className="profileRightBottom"></div>
-            <Timeline />
-            <Rightbar />
+            <div className="profileRightBottom">
+              <Timeline />
+              <Rightbar profile={true}/>
+            </div>
           </div>
       </div> 
     </>
