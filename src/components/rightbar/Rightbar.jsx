@@ -49,7 +49,7 @@ export default function Rightbar({profile}) {
       <div className="rightbarInfo">
         <div className="rightbarInfoItem">
           <span className="rightbarInfoKey">出身：</span>
-          <span className="rightbarInfoValue">福岡</span>
+          <span className="rightbarInfoKey">福岡</span>
         </div>
         <h4 className="rightbarTitle">あなたの友達</h4>
         <div className="rightbarFollowings">
