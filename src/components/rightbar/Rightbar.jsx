@@ -45,7 +45,32 @@ export default function Rightbar({profile}) {
    */
   const ProfileRightbar = () => (
     <>
-      ProfileのRightbarです。
+      <h4 className="rightbarTitle">ユーザー情報</h4>
+      <div className="rightbarInfo">
+        <div className="rightbarInfoItem">
+          <span className="rightbarInfoKey">出身：</span>
+          <span className="rightbarInfoValue">福岡</span>
+        </div>
+        <h4 className="rightbarTitle">あなたの友達</h4>
+        <div className="rightbarFollowings">
+          <div className="rightbarFollowing">
+            <img src="./assets/person/1.jpeg" alt="フォローワーアイコン" className='rightbarFollowingImg' />
+            <span className="rightbarFollowingName">illion</span>
+          </div>
+          <div className="rightbarFollowing">
+            <img src="./assets/person/2.jpeg" alt="フォローワーアイコン" className='rightbarFollowingImg' />
+            <span className="rightbarFollowingName">illion</span>
+          </div>
+          <div className="rightbarFollowing">
+            <img src="./assets/person/3.jpeg" alt="フォローワーアイコン" className='rightbarFollowingImg' />
+            <span className="rightbarFollowingName">illion</span>
+          </div>
+          <div className="rightbarFollowing">
+            <img src="./assets/person/4.jpeg" alt="フォローワーアイコン" className='rightbarFollowingImg' />
+            <span className="rightbarFollowingName">illion</span>
+          </div>
+        </div>
+      </div>
     </>
   )
 
