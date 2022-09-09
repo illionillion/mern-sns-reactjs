@@ -11,6 +11,7 @@ import { Users } from '../../dummyData';
 export default function Post({post}) {
     // 引数のPOSTを取得
 
+    const REACT_APP_PUBLIC_FOLDER = window.location.origin // url取得
 
     const [like, setLike] = useState(post.like)
     const [isLiked, setIsLiked] = useState(false) // いいねしたかどうかのフラグ
@@ -43,7 +44,7 @@ export default function Post({post}) {
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img src="./assets/heart.png" alt="いいねアイコン" className='likeIcon' onClick={() => handleLike()}/>
+                        <img src={REACT_APP_PUBLIC_FOLDER + "/assets/heart.png"} alt="いいねアイコン" className='likeIcon' onClick={() => handleLike()}/>
                         <span className="postLikeCounter">{like}人がいいねをしました</span>
                     </div>
                     <div className="postBottomRight">

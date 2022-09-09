@@ -6,6 +6,8 @@ import Topbar from '../../components/topbar/Topbar'
 import './Profile.css'
 
 export default function Profile() {
+  const REACT_APP_PUBLIC_FOLDER = window.location.origin // url取得
+  // console.log(REACT_APP_PUBLIC_FOLDER);
   return (
     <>
       <Topbar />
@@ -14,8 +16,8 @@ export default function Profile() {
           <div className="profileRight">
             <div className="profileRightTop">
               <div className="profileCover">
-                <img src="./assets/post/3.jpeg" alt="画像" className='profileCoverImg' />
-                <img src="./assets/person/1.jpeg" alt="アイコン" className='profileUserImg' />
+                <img src={REACT_APP_PUBLIC_FOLDER + "/assets/post/3.jpeg"} alt="画像" className='profileCoverImg' />
+                <img src={REACT_APP_PUBLIC_FOLDER + "/assets/person/1.jpeg"} alt="アイコン" className='profileUserImg' />
               </div>
               <div className="profileInfo">
                 <h4 className='profileInfoName'>illion</h4>
