@@ -1,5 +1,6 @@
 import { Chat, Notifications, Search } from '@mui/icons-material'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Topbar.css'
 
 export default function Topbar() {
@@ -7,7 +8,9 @@ export default function Topbar() {
     <header className='topbarContainer'>
         <div className="topbarLeft">
             {/* トップバーの左のところのアイコンを作っている */}
-            <span className='logo'>Real-SNS</span>
+            <Link to="/" style={{textDecoration:"none"}}>
+                <span className='logo'>Real-SNS</span>
+            </Link>
         </div>
         <div className="topbarCenter">
             {/* 真ん中のサーチバー */}
