@@ -2,6 +2,7 @@ import { MoreVert } from '@mui/icons-material'
 import React, { useState } from 'react'
 import './Post.css'
 import { Users } from '../../dummyData';
+import imageRequire from '../../imageRequire';
 
 /**
  * １投稿のカード
@@ -10,8 +11,6 @@ import { Users } from '../../dummyData';
  */
 export default function Post({post}) {
     // 引数のPOSTを取得
-
-    const REACT_APP_PUBLIC_FOLDER = window.location.origin // url取得
 
     const [like, setLike] = useState(post.like)
     const [isLiked, setIsLiked] = useState(false) // いいねしたかどうかのフラグ
@@ -30,7 +29,7 @@ export default function Post({post}) {
             <div className="postWrapper">
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <img src={user.profilePicture} alt="投稿アイコン" className='postProfileImg' />
+                        <img src={imageRequire(user.profilePicture)} alt="投稿アイコン" className='postProfileImg' />
                         <span className="postUsername">{user.username}</span>
                         <span className="postDate">{post.date}</span>
                     </div>
@@ -40,11 +39,11 @@ export default function Post({post}) {
                 </div>
                 <div className="postCenter">
                     <span className="postText">{post.desc}</span>
-                    <img src={post.photo} alt="投稿画像" className='postImg' />
+                    <img src={imageRequire(post.photo)} alt="投稿画像" className='postImg' />
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img src={REACT_APP_PUBLIC_FOLDER + "/assets/heart.png"} alt="いいねアイコン" className='likeIcon' onClick={() => handleLike()}/>
+                        <img src={imageRequire("assets/heart.png")} alt="いいねアイコン" className='likeIcon' onClick={() => handleLike()}/>
                         <span className="postLikeCounter">{like}人がいいねをしました</span>
                     </div>
                     <div className="postBottomRight">

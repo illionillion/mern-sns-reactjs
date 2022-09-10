@@ -1,10 +1,10 @@
 import { Chat, Notifications, Search } from '@mui/icons-material'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import imageRequire from '../../imageRequire'
 import './Topbar.css'
 
 export default function Topbar() {
-    const REACT_APP_PUBLIC_FOLDER = window.location.origin // url取得
   return (
     <header className='topbarContainer'>
         <div className="topbarLeft">
@@ -40,7 +40,7 @@ export default function Topbar() {
                 </div>
                 <div className="topbarIconItem">
                     {/* 画像フォルダはpublicディレクトリにある */}
-                    <img src={REACT_APP_PUBLIC_FOLDER + "/assets/person/1.jpeg"} alt="アイコン" className='topbarImg' />
+                    <img src={imageRequire("assets/person/1.jpeg")} alt="アイコン" className='topbarImg' />
                 </div>
             </div>
         </div>

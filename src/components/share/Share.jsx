@@ -1,13 +1,14 @@
 import React from 'react'
 import './Share.css'
 import { Analytics, Face, Gif, Image } from '@mui/icons-material'
+import imageRequire from '../../imageRequire'
 
 export default function Share() {
   return (
     <div className='share'>
         <div className="shareWrapper">
             <div className="shareTop">
-                <img src="./assets/person/1.jpeg" alt="" className='shareProfileImg' />
+                <img src={imageRequire("/assets/person/1.jpeg")} alt="" className='shareProfileImg' />
                 <input type="text" className="shareInput" placeholder='今何してん？'/>
             </div>
             <hr className="shareHr" />

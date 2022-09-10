@@ -2,6 +2,7 @@ import React from 'react'
 import './Rightbar.css'
 import Online from '../online/Online'
 import { Users } from '../../dummyData'
+import imageRequire from '../../imageRequire'
 
 /**
  * ライトバー
@@ -17,12 +18,12 @@ export default function Rightbar({profile}) {
   const HomeRightbar = () => (
         <>
           <div className="eventContainer">
-            <img src="./assets/star.png" alt="イベント星マーク" className='starImg' />
+            <img src={imageRequire("assets/star.png" )}alt="イベント星マーク" className='starImg' />
             <span className="eventText">
               <b>フォロワー限定イベント開催！！</b>
             </span>
           </div>
-          <img src="./assets/event.jpeg" alt="イベント画像" className='eventImg' />
+          <img src={imageRequire("assets/event.jpeg" )}alt="イベント画像" className='eventImg' />
           <h4 className="rightbarTitle">オンラインの友達</h4>
           <ul className="rightbarFriendList">
             {Users.map(user => (
@@ -30,11 +31,11 @@ export default function Rightbar({profile}) {
             ))}
           </ul>
           <p className="promotionTitle">プロモーション広告</p>
-          <img src="./assets/promotion/promotion1.jpeg" alt="広告画像" className='rightbarPromotionImg' />
+          <img src={imageRequire("assets/promotion/promotion1.jpeg")} alt="広告画像" className='rightbarPromotionImg' />
           <p className="promotionName">ショッピング</p>
-          <img src="./assets/promotion/promotion2.jpeg" alt="広告画像" className='rightbarPromotionImg' />
+          <img src={imageRequire("assets/promotion/promotion2.jpeg")} alt="広告画像" className='rightbarPromotionImg' />
           <p className="promotionName">カーショップ</p>
-          <img src="./assets/promotion/promotion3.jpeg" alt="広告画像" className='rightbarPromotionImg' />
+          <img src={imageRequire("assets/promotion/promotion3.jpeg")} alt="広告画像" className='rightbarPromotionImg' />
           <p className="promotionName">〇〇株式会社</p>
         </>
   )
@@ -54,19 +55,19 @@ export default function Rightbar({profile}) {
         <h4 className="rightbarTitle">あなたの友達</h4>
         <div className="rightbarFollowings">
           <div className="rightbarFollowing">
-            <img src="./assets/person/1.jpeg" alt="フォローワーアイコン" className='rightbarFollowingImg' />
+            <img src={imageRequire("assets/person/1.jpeg")} alt="フォローワーアイコン" className='rightbarFollowingImg' />
             <span className="rightbarFollowingName">illion</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="./assets/person/2.jpeg" alt="フォローワーアイコン" className='rightbarFollowingImg' />
+            <img src={imageRequire("assets/person/2.jpeg")} alt="フォローワーアイコン" className='rightbarFollowingImg' />
             <span className="rightbarFollowingName">illion</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="./assets/person/3.jpeg" alt="フォローワーアイコン" className='rightbarFollowingImg' />
+            <img src={imageRequire("assets/person/3.jpeg")} alt="フォローワーアイコン" className='rightbarFollowingImg' />
             <span className="rightbarFollowingName">illion</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="./assets/person/4.jpeg" alt="フォローワーアイコン" className='rightbarFollowingImg' />
+            <img src={imageRequire("assets/person/4.jpeg")} alt="フォローワーアイコン" className='rightbarFollowingImg' />
             <span className="rightbarFollowingName">illion</span>
           </div>
         </div>

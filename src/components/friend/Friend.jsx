@@ -1,4 +1,5 @@
 import React from 'react'
+import imageRequire from '../../imageRequire'
 
 /**
  * フレンド
@@ -9,7 +10,7 @@ export default function Friend({user}) {
   return (
     <li className="sidebarFriend">
         <img 
-            src={user.profilePicture} 
+            src={imageRequire(user.profilePicture)} 
             alt={user.username + "フレンドアイコン"} 
             className='sidebarFriendImg'
         />

@@ -3,11 +3,10 @@ import Rightbar from '../../components/rightbar/Rightbar'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Timeline from '../../components/timeline/TimeLine'
 import Topbar from '../../components/topbar/Topbar'
+import imageRequire from '../../imageRequire'
 import './Profile.css'
 
 export default function Profile() {
-  const REACT_APP_PUBLIC_FOLDER = window.location.origin // url取得
-  // console.log(REACT_APP_PUBLIC_FOLDER);
   return (
     <>
       <Topbar />
@@ -16,8 +15,8 @@ export default function Profile() {
           <div className="profileRight">
             <div className="profileRightTop">
               <div className="profileCover">
-                <img src={REACT_APP_PUBLIC_FOLDER + "/assets/post/3.jpeg"} alt="画像" className='profileCoverImg' />
-                <img src={REACT_APP_PUBLIC_FOLDER + "/assets/person/1.jpeg"} alt="アイコン" className='profileUserImg' />
+                <img src={imageRequire("assets/post/3.jpeg")} alt="画像" className='profileCoverImg' />
+                <img src={imageRequire("assets/person/1.jpeg")} alt="アイコン" className='profileUserImg' />
               </div>
               <div className="profileInfo">
                 <h4 className='profileInfoName'>illion</h4>
