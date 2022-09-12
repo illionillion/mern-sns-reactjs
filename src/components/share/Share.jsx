@@ -8,7 +8,7 @@ export default function Share() {
     <div className='share'>
         <div className="shareWrapper">
             <div className="shareTop">
-                <img src={imageRequire("/assets/person/1.jpeg")} alt="" className='shareProfileImg' />
+                <img src={imageRequire("assets/person/1.jpeg")} alt="" className='shareProfileImg' />
                 <input type="text" className="shareInput" placeholder='今何してん？'/>
             </div>
             <hr className="shareHr" />
