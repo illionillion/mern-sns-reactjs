@@ -12,21 +12,6 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="style.css">
-    <script>
-
-      window.addEventListener('DOMContentLoaded', e => {
-
-        const srcs = ["style.css",]
-        
-        srcs.forEach(element => {
-          const link = document.createElement('link')
-          link.rel = "stylesheet"
-          link.href = window.location.origin + "/" + element
-          document.querySelector("head").appendChild(link)
-        });
-      })
-    </script>
     <title>Real-SNS</title>
   </head>
   <body>
