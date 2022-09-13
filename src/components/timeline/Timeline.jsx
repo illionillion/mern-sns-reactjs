@@ -28,10 +28,9 @@ useEffect(() => {
       <div className="timelineWrapper">
         <Share />
 
-        {/* エラー起こるので次回修正 */}
-        {/* {posts.map(post => (
+        {posts.map(post => (
           <Post post = {post} key = {post.id}/>
-        ))} */}
+        ))}
       </div>
     </section>
   )

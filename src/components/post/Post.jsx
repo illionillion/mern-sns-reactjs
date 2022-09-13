@@ -1,8 +1,9 @@
 import { MoreVert } from '@mui/icons-material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Post.css'
-import { Users } from '../../dummyData';
+// import { Users } from '../../dummyData';
 import imageRequire from '../../imageRequire';
+import axios from 'axios';
 
 /**
  * １投稿のカード
@@ -14,6 +15,21 @@ export default function Post({post}) {
 
     const [like, setLike] = useState(post.like)
     const [isLiked, setIsLiked] = useState(false) // いいねしたかどうかのフラグ
+    const [user, setUser] = useState([])
+
+    // useEffectでDOMにマウント時に一回だけ実行
+    useEffect(() => {
+
+    const fetchUser = async () => {
+        // プロキシ設定してるのでhttp~は省略
+        const response = await axios.get(`/users/${post.userId}`)
+        console.log(response);
+        setUser(response.data) // 中身を取り出す
+    }
+
+    fetchUser()
+
+    }, [])
 
     const handleLike = () => {
         // isLikedがtrueならすでに押されているので-1、その逆は+1
@@ -21,7 +37,6 @@ export default function Post({post}) {
         setIsLiked(!isLiked)
     }
 
-    const user = Users.filter(user => user.id === post.id)[0] // filterでIDが同じものを取ってくる
     // console.log(user);
 
     return (
@@ -29,7 +44,7 @@ export default function Post({post}) {
             <div className="postWrapper">
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <img src={imageRequire(user.profilePicture)} alt="投稿アイコン" className='postProfileImg' />
+                        <img src={imageRequire(user.profilePicture || 'assets/person/noAvatar.png')} alt="投稿アイコン" className='postProfileImg' />
                         <span className="postUsername">{user.username}</span>
                         <span className="postDate">{post.date}</span>
                     </div>
@@ -39,7 +54,7 @@ export default function Post({post}) {
                 </div>
                 <div className="postCenter">
                     <span className="postText">{post.desc}</span>
-                    <img src={imageRequire(post.photo)} alt="投稿画像" className='postImg' />
+                    {post.photo ? (<img src={imageRequire(post.photo)} alt="投稿画像" className='postImg' />) : ("")}
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
