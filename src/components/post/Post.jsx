@@ -1,7 +1,6 @@
 import { MoreVert } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
 import './Post.css'
-// import { Users } from '../../dummyData';
 import imageRequire from '../../imageRequire';
 import axios from 'axios';
 
@@ -54,7 +53,8 @@ export default function Post({post}) {
                 </div>
                 <div className="postCenter">
                     <span className="postText">{post.desc}</span>
-                    {post.photo ? (<img src={imageRequire(post.photo)} alt="投稿画像" className='postImg' />) : ("")}
+                    {post.img ? (<img src={imageRequire(post.img)} alt="投稿画像" className='postImg' />) : ("")}
+                    {/* {(<img src={imageRequire(post.img)} alt="投稿画像" className='postImg' />)} */}
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">

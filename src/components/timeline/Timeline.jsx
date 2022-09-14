@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import Post from '../post/Post'
 import Share from '../share/Share'
 import './TimeLine.css'
-// import { Posts } from '../../dummyData'
 import axios from 'axios'
 
 export default function Timeline() {
@@ -14,7 +13,7 @@ useEffect(() => {
 
   const fetchPosts = async () => {
     // プロキシ設定してるのでhttp~は省略
-    const response = await axios.get('/posts/timeline/630880f8e055fa5923ca4094')
+    const response = await axios.get('/posts/timeline/630880f8e055fa5923ca4094') // ここで630880f8e055fa5923ca4094ユーザーを決め打ちしてる
     console.log(response);
     setPosts(response.data) // 中身を取り出す
   }
