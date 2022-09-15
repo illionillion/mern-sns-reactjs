@@ -5,7 +5,7 @@ import Share from '../share/Share'
 import './TimeLine.css'
 import axios from 'axios'
 
-export default function Timeline() {
+export default function Timeline({username}) {
 const [posts, setPosts] = useState([])
 
 // useEffectでDOMにマウント時に一回だけ実行
