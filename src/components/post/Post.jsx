@@ -12,7 +12,7 @@ import axios from 'axios';
 export default function Post({post}) {
     // 引数のPOSTを取得
 
-    const [like, setLike] = useState(post.like)
+    const [like, setLike] = useState(post.likes.length)
     const [isLiked, setIsLiked] = useState(false) // いいねしたかどうかのフラグ
     const [user, setUser] = useState([])
 
