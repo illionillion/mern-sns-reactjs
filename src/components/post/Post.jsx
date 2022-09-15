@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import './Post.css'
 import imageRequire from '../../imageRequire';
 import axios from 'axios';
+import {format} from 'timeago.js'
 
 /**
  * １投稿のカード
@@ -45,7 +46,7 @@ export default function Post({post}) {
                     <div className="postTopLeft">
                         <img src={imageRequire(user.profilePicture || 'assets/person/noAvatar.png')} alt="投稿アイコン" className='postProfileImg' />
                         <span className="postUsername">{user.username}</span>
-                        <span className="postDate">{post.date}</span>
+                        <span className="postDate">{format(post.createdAt)}</span>
                     </div>
                     <div className="postTopRight">
                         <MoreVert />
