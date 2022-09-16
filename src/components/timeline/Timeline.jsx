@@ -13,8 +13,10 @@ useEffect(() => {
 
   const fetchPosts = async () => {
     // プロキシ設定してるのでhttp~は省略
-    const response = await axios.get('/posts/timeline/630880f8e055fa5923ca4094') // ここで630880f8e055fa5923ca4094ユーザーを決め打ちしてる
-    console.log(response);
+    const response = username ?
+        await axios.get(`/posts/profile/${username}`)
+      : await axios.get('/posts/timeline/630880f8e055fa5923ca4094') // ここで630880f8e055fa5923ca4094ユーザーを決め打ちしてる
+     console.log(response);
     setPosts(response.data) // 中身を取り出す
   }
 
