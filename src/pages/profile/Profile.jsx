@@ -16,7 +16,7 @@ export default function Profile() {
 
     const fetchUser = async () => {
         // プロキシ設定してるのでhttp~は省略
-        const response = await axios.get(`/users?username=illlion2`) // なぜか3000番にリクエスト送られて取れない
+        const response = await axios.get(`/users?username=illion2`) // なぜか3000番にリクエスト送られて取れない
         console.log(response);
         setUser(response.data) // 中身を取り出す
     }

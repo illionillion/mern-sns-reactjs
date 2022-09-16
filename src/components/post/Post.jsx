@@ -22,7 +22,7 @@ export default function Post({post}) {
 
     const fetchUser = async () => {
         // プロキシ設定してるのでhttp~は省略
-        const response = await axios.get(`/users/${post.userId}`)
+        const response = await axios.get(`/users?userId=${post.userId}`)
         console.log(response);
         setUser(response.data) // 中身を取り出す
     }
