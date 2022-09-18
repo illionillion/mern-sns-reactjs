@@ -4,6 +4,7 @@ import './Post.css'
 import imageRequire from '../../imageRequire';
 import axios from 'axios';
 import {format} from 'timeago.js'
+import { Link } from 'react-router-dom';
 
 /**
  * １投稿のカード
@@ -29,7 +30,7 @@ export default function Post({post}) {
 
     fetchUser()
 
-    }, [])
+    }, [post.userId])
 
     const handleLike = () => {
         // isLikedがtrueならすでに押されているので-1、その逆は+1
@@ -44,7 +45,9 @@ export default function Post({post}) {
             <div className="postWrapper">
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <img src={imageRequire(user.profilePicture || 'assets/person/noAvatar.png')} alt="投稿アイコン" className='postProfileImg' />
+                        <Link to={`/profile/${user.username}`}>
+                            <img src={imageRequire(user.profilePicture || 'assets/person/noAvatar.png')} alt="投稿アイコン" className='postProfileImg' />
+                        </Link>
                         <span className="postUsername">{user.username}</span>
                         <span className="postDate">{format(post.createdAt)}</span>
                     </div>
