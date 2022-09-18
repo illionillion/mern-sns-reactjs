@@ -22,7 +22,7 @@ useEffect(() => {
 
   fetchPosts()
 
-}, [])
+}, [username])
 
   return (
     <section className='timeline'>
