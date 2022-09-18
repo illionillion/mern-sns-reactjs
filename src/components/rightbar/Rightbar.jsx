@@ -9,7 +9,7 @@ import imageRequire from '../../imageRequire'
  * @param {boolean} param0 切り分け用フラグ
  * @returns {JSX.Element}
  */
-export default function Rightbar({profile}) {
+export default function Rightbar({user}) {
 
   /**
    * ホームのライトバー
@@ -78,7 +78,7 @@ export default function Rightbar({profile}) {
   return (
     <aside className="rightbar">
       <div className="rightbarWrapper">
-        {profile ? <ProfileRightbar/> : <HomeRightbar/>}
+        {user ? <ProfileRightbar/> : <HomeRightbar/>}
       </div>
     </aside>
   )
