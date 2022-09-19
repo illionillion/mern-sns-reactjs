@@ -10,14 +10,14 @@ export default function Login() {
                 <span className="loginDesc">自作のSNS</span>
             </div>
             <div className="loginRight">
-              <div className="loginBox">
+              <form className="loginBox">
                 <p className="loginMsg">ログインはこちら</p>
-                <input type="text" className="loginInput" placeholder='Eメール' />
-                <input type="text" className="loginInput" placeholder='パスワード' />
-                <input type="button" value="ログイン" className="loginButton" />
+                <input type="email" className="loginInput" placeholder='Eメール' required />
+                <input type="password" className="loginInput" placeholder='パスワード' minLength="6" required />
+                <input type="submit" value="ログイン" className="loginButton" />
                 <span className="loginForgot">パスワードを忘れた場合</span>
                 <input type="button" value="アカウント作成" className="loginRegisterButton" />
-              </div>
+              </form>
             </div>
         </div>
     </div>
