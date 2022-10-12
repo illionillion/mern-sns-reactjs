@@ -11,6 +11,15 @@ const initialState = {
 // 状態をグローバルに管理する
 export const AuthContext = createContext(initialState) // 初期値のユーザー状態を誰でも使えるようにする
 
-export const AuthContextProvider = () => {
+export const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AuthReducer, initialState)
+
+    return <AuthContext.Provider value={{
+        user: state.user,
+        isFetching: state.isFetching,
+        error: state.error,
+        dispatch,
+    }}>
+        {children}
+    </AuthContext.Provider>
 }
