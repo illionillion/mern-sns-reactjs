@@ -1,11 +1,14 @@
 import React from 'react'
 import { useContext } from 'react'
 import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { loginCall } from '../../actionCall'
 import { AuthContext } from '../../state/AuthContext'
 import './Login.css'
 
 export default function Login() {
+
+  const navigate = useNavigate()
 
   const email = useRef()
   const password = useRef()
@@ -45,7 +48,7 @@ export default function Login() {
             <input type="password" className="loginInput" placeholder='パスワード' minLength="6" required ref={password} autoComplete='current-passsword' />
             <input type="submit" value="ログイン" className="loginButton" />
             <span className="loginForgot">パスワードを忘れた場合</span>
-            <input type="button" value="アカウント作成" className="loginRegisterButton" />
+            <input type="button" value="アカウント作成" onClick={() => navigate("/register")} className="loginRegisterButton" />
           </form>
         </div>
       </div>

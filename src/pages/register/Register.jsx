@@ -57,7 +57,7 @@ export default function Register() {
                 <input type="password" className="loginInput" placeholder='パスワード' minLength={6} ref={password} autoComplete='new-passsword' required/>
                 <input type="password" className="loginInput" placeholder='確認用パスワード' minLength={6} ref={passwordConfirmation} autoComplete='current-passsword' required/>
                 <input type="submit" value="サインアップ" className="loginButton" />
-                <input type="button" value="ログイン" className="loginRegisterButton" />
+                <input type="button" value="ログイン" onClick={() => navigate("/login")} className="loginRegisterButton" />
               </form>
             </div>
         </div>
