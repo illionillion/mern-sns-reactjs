@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useRef } from 'react'
 import './Register.css'
 
@@ -16,11 +17,26 @@ export default function Register() {
    * 
    * @param {Event} e イベント
    */
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
 
-    console.log(username);
-    console.log(email);
+    // パスワードと確認用のパスワードが合っているか確認
+    if (password.current.value !== passwordConfirmation.current.value) {
+      passwordConfirmation.current.setCustomValidity('パスワードが違います')
+    } else {
+      try {
+        // データ取得
+        const user = {
+          username: username.current.value,
+          email: email.current.value,
+          password: password.current.value,
+        }
+        // registerApiを叩く
+        await axios.post("/auth/register", user)
+      } catch (err) {
+        console.log(err);
+      }
+    }
   }
 
   return (
