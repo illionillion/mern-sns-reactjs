@@ -41,7 +41,7 @@ export default function Login() {
         <div className="loginRight">
           <form className="loginBox" onSubmit={handleSubmit}>
             <p className="loginMsg">ログインはこちら</p>
-            <input type="email" className="loginInput" placeholder='Eメール' required ref={email} />
+            <input type="email" className="loginInput" placeholder='Eメール' required ref={email} autoComplete='email'/>
             <input type="password" className="loginInput" placeholder='パスワード' minLength="6" required ref={password} autoComplete='current-passsword' />
             <input type="submit" value="ログイン" className="loginButton" />
             <span className="loginForgot">パスワードを忘れた場合</span>
