@@ -4,14 +4,26 @@ import AuthReducer from './AuthReducer'
 // 最初のユーザー状態を定義
 const initialState = {
     // user: null,
+    // user: {
+    //     _id: "634a5824a87e6d2cf067cc34",
+    //     username: "sei-javascript",
+    //     email: "sei-sample@email.com",
+    //     password: "052614",
+    //     profilePicture: "",
+    //     coverPicture: "",
+    //     followers: [],
+    //     followings: [],
+    //     isAdmin: false
+    // },
     user: {
-        _id: "634a5824a87e6d2cf067cc34",
-        username: "sei-javascript",
-        email: "sei-sample@email.com",
-        password: "052614",
-        profilePicture: "",
-        coverPicture: "",
-        followers: [],
+
+        _id: "6308812a916309c03bd8a16c",
+        username: "nakajima",
+        email: "nakazima@gmail.com",
+        password: "ocs_h24kw35",
+        profilePicture: "assets/person/1.jpeg",
+        coverPicture: "",        
+        followers: [],        
         followings: [],
         isAdmin: false
     },
