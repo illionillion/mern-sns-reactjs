@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useEffect } from 'react'
 import Post from '../post/Post'
 import Share from '../share/Share'
 import './TimeLine.css'
 import axios from 'axios'
+import { AuthContext } from '../../state/AuthContext'
 
 export default function Timeline({username}) {
 const [posts, setPosts] = useState([])
+const { user } = useContext(AuthContext)
 
 // useEffectでDOMにマウント時に一回だけ実行
 useEffect(() => {
@@ -14,8 +16,8 @@ useEffect(() => {
   const fetchPosts = async () => {
     // プロキシ設定してるのでhttp~は省略
     const response = username ?
-        await axios.get(`/posts/profile/${username}`)
-      : await axios.get('/posts/timeline/630880f8e055fa5923ca4094') // ここで630880f8e055fa5923ca4094ユーザーを決め打ちしてる
+        await axios.get(`/posts/profile/${username}`) // プロフィールの場合
+      : await axios.get(`/posts/timeline/${user._id}`) // ホームの場合
      console.log(response);
     setPosts(response.data) // 中身を取り出す
   }
