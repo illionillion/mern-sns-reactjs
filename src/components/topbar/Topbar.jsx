@@ -1,10 +1,12 @@
 import { Chat, Notifications, Search } from '@mui/icons-material'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import imageRequire from '../../imageRequire'
+import { AuthContext } from '../../state/AuthContext'
 import './Topbar.css'
 
 export default function Topbar() {
+    const { user } = useContext(AuthContext)
   return (
     <header className='topbarContainer'>
         <div className="topbarLeft">
@@ -39,8 +41,10 @@ export default function Topbar() {
                     <span className="topbarIconBadge">2</span>
                 </div>
                 <div className="topbarIconItem">
-                    {/* 画像フォルダはpublicディレクトリにある */}
-                    <img src={imageRequire("assets/person/1.jpeg")} alt="アイコン" className='topbarImg' />
+                    <Link to={`/profile/${user.username}`}>
+                        {/* 画像フォルダはpublicディレクトリにある */}
+                        <img src={imageRequire(user.profilePicture || 'assets/person/noAvatar.png')} alt="アイコン" className='topbarImg' />
+                    </Link>
                 </div>
             </div>
         </div>
