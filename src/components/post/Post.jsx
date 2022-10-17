@@ -5,6 +5,8 @@ import imageRequire from '../../imageRequire';
 import axios from 'axios';
 import {format} from 'timeago.js'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../state/AuthContext'
 
 /**
  * １投稿のカード
@@ -17,6 +19,7 @@ export default function Post({post}) {
     const [like, setLike] = useState(post.likes.length)
     const [isLiked, setIsLiked] = useState(false) // いいねしたかどうかのフラグ
     const [user, setUser] = useState([])
+    const { user : currentUser } = useContext(AuthContext)
 
     // useEffectでDOMにマウント時に一回だけ実行
     useEffect(() => {
@@ -32,10 +35,17 @@ export default function Post({post}) {
 
     }, [post.userId])
 
-    const handleLike = () => {
-        // isLikedがtrueならすでに押されているので-1、その逆は+1
-        setLike(isLiked ? like - 1 : like + 1)
-        setIsLiked(!isLiked)
+    const handleLike = async () => {
+        try {
+            await axios.put(`/posts/${post._id}/like`, {
+                userId: currentUser._id,// 誰がログインしてるか
+            })
+            // isLikedがtrueならすでに押されているので-1、その逆は+1
+            setLike(isLiked ? like - 1 : like + 1)
+            setIsLiked(!isLiked)
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     // console.log(user);
