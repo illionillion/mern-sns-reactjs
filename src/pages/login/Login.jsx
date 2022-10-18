@@ -32,7 +32,7 @@ export default function Login() {
       }, dispatch)
   }
 
-  console.log(user);
+  // console.log(user);
 
   return (
     <div className='login'>
