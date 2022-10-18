@@ -3,17 +3,37 @@ import './Share.css'
 import { Analytics, Face, Gif, Image } from '@mui/icons-material'
 import imageRequire from '../../imageRequire'
 import { AuthContext } from '../../state/AuthContext'
+import { useRef } from 'react'
+import axios from 'axios'
 
 export default function Share() {
 
+    const desc = useRef()
     const { user } = useContext(AuthContext)
+    const handleSubmit = async e => {
+        e.preventDefault()
+        const newPost = {
+            userId: user._id,
+            desc: desc.current.value,
+        }
+        console.log(newPost);
+
+        try {
+            // 投稿送信
+            await axios.post("/posts", newPost)
+            // ページ更新
+            window.location.reload()
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <div className='share'>
-            <div className="shareWrapper">
+            <form className="shareWrapper" onSubmit={handleSubmit}>
                 <div className="shareTop">
                     <img src={imageRequire(user.profilePicture || "assets/person/noAvatar.png")} alt="" className='shareProfileImg' />
-                    <input type="text" className="shareInput" placeholder='今何してん？'/>
+                    <input type="text" className="shareInput" placeholder='今何してん？' ref={desc}/>
                 </div>
                 <hr className="shareHr" />
                 <div className="shareButtons">
@@ -36,9 +56,9 @@ export default function Share() {
                             <span className="shareOptionText">投票</span>
                         </div>
                     </div>
-                    <input type="button" value="投稿" className="shareButton" />
+                    <input type="submit" value="投稿" className="shareButton" />
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
