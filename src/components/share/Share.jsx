@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './Share.css'
 import { Analytics, Face, Gif, Image } from '@mui/icons-material'
 import imageRequire from '../../imageRequire'
@@ -28,6 +28,9 @@ export default function Share() {
         }
     }
 
+    const [file, setFile] = useState(null)
+    console.log(file);
+
     return (
         <div className='share'>
             <form className="shareWrapper" onSubmit={handleSubmit}>
@@ -38,11 +41,12 @@ export default function Share() {
                 <hr className="shareHr" />
                 <div className="shareButtons">
                     <div className="shareOptions">
-                        <div className="shareOption">
+                        <label className="shareOption" htmlFor='file'>
                             {/* MUI、htmlColorで色変えれる */}
                             <Image className='shareIcon' htmlColor='blue'/>
                             <span className="shareOptionText">写真</span>
-                        </div>
+                            <input type="file" name="" id="file" accept='.png, .jpeg, .jpg' style={{display:"none"}} onChange={e => setFile(e.target.files[0])} />
+                        </label>
                         <div className="shareOption">
                             <Gif className='shareIcon' htmlColor='hotpink'/>
                             <span className="shareOptionText">Gif</span>
