@@ -18,6 +18,23 @@ export default function Share() {
         }
         console.log(newPost);
 
+        if (file) {
+
+            // フォームデータ
+            const data = new FormData()
+            const fileName = Date.now() + file.name
+            data.append("name", fileName) // フォームデータにデータをセット
+            data.append("file", file)
+            newPost.img = fileName
+
+            try {
+                // 画像APIを叩く
+                await axios.post("/upload", data)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
         try {
             // 投稿送信
             await axios.post("/posts", newPost)
