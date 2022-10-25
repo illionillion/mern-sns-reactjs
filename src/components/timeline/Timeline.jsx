@@ -18,8 +18,10 @@ useEffect(() => {
     const response = username ?
         await axios.get(`/posts/profile/${username}`) // プロフィールの場合
       : await axios.get(`/posts/timeline/${user._id}`) // ホームの場合
-     console.log(response);
-    setPosts(response.data) // 中身を取り出す
+    //  console.log(response);
+    setPosts(response.data.sort((post1, post2) => {
+      return new Date(post2.createdAt) - new Date(post1.createdAt) // 並び替え
+    })) // 中身を取り出す
   }
 
   fetchPosts()
