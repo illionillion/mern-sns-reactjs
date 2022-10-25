@@ -36,6 +36,9 @@ export default function Share() {
         }
 
         try {
+            if (!newPost.desc) {
+                throw "空文字"
+            }
             // 投稿送信
             await axios.post("/posts", newPost)
             // ページ更新
