@@ -1,70 +1,157 @@
-# Getting Started with Create React App
+# README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+このプログラムはReactアプリケーションであり、認証機能付きのソーシャルメディアアプリケーションとなります。
 
-## Available Scripts
+## ディレクトリ構成
 
-In the project directory, you can run:
+```
+└──frontend
+    ├──README.md
+    ├──package-lock.json
+    ├──package.json
+    ├──public
+    │   ├──assets
+    │   │   ├──event.jpeg
+    │   │   ├──heart.png
+    │   │   ├──person
+    │   │   │   ├──1.jpeg
+    │   │   │   ├──2.jpeg
+    │   │   │   ├──3.jpeg
+    │   │   │   ├──4.jpeg
+    │   │   │   ├──5.jpeg
+    │   │   │   └──noAvatar.png
+    │   │   ├──post
+    │   │   │   ├──1.jpeg
+    │   │   │   ├──2.jpeg
+    │   │   │   ├──3.jpeg
+    │   │   │   ├──4.jpeg
+    │   │   │   └──5.jpeg
+    │   │   ├──promotion
+    │   │   │   ├──promotion1.jpeg
+    │   │   │   ├──promotion2.jpeg
+    │   │   │   └──promotion3.jpeg
+    │   │   └──star.png
+    │   ├──favicon.ico
+    │   ├──index.html
+    │   ├──manifest.json
+    │   └──robots.txt
+    └──src
+        ├──App.js
+        ├──actionCall.js
+        ├──components
+        │   ├──friend
+        │   │   ├──Friend.css
+        │   │   └──Friend.jsx
+        │   ├──online
+        │   │   ├──Online.css
+        │   │   └──Online.jsx
+        │   ├──post
+        │   │   ├──Post.css
+        │   │   └──Post.jsx
+        │   ├──rightbar
+        │   │   ├──Rightbar.css
+        │   │   └──Rightbar.jsx
+        │   ├──share
+        │   │   ├──Share.css
+        │   │   └──Share.jsx
+        │   ├──sidebar
+        │   │   ├──Sidebar.css
+        │   │   └──Sidebar.jsx
+        │   ├──timeline
+        │   │   ├──TimeLine.css
+        │   │   └──TimeLine.jsx
+        │   └──topbar
+        │       ├──Topbar.css
+        │       └──Topbar.jsx
+        ├──dummyData.js
+        ├──imageRequire.js
+        ├──index.js
+        ├──pages
+        │   ├──home
+        │   │   ├──Home.css
+        │   │   └──Home.jsx
+        │   ├──login
+        │   │   ├──Login.css
+        │   │   └──Login.jsx
+        │   ├──profile
+        │   │   ├──Profile.css
+        │   │   └──Profile.jsx
+        │   └──register
+        │       ├──Register.css
+        │       └──Register.jsx
+        ├──state
+        │   ├──AuthActions.js
+        │   ├──AuthContext.js
+        │   └──AuthReducer.js
+        └──style.css
+```
 
-### `npm start`
+## 使用方法
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. ターミナルで以下のコマンドを実行します。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+npm install
+```
 
-### `npm test`
+2. 次に、以下のコマンドを実行します。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm start
+```
 
-### `npm run build`
+3. ウェブブラウザで `http://localhost:3000` を開きます。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ソースコード
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```javascript
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import Profile from "./pages/profile/Profile";
+import Register from "./pages/register/Register";
+import { BrowserRouter as Router, Navigate, Route, Routes, } from "react-router-dom";
+import './style.css'
+import { useContext } from "react";
+import { AuthContext } from "./state/AuthContext";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+function App() {
+  
+  const { user } = useContext(AuthContext)
 
-### `npm run eject`
+  return (
+    // ルーティング
+      <Router>
+        <Routes>
+          {/* userがないなら登録画面へ */}
+          <Route path="/" element={user ? <Home/> : <Navigate to="/register"/>} />
+          {/* userがある場合Homeコンポーネントへリダイレクト */}
+          <Route path="/login" element={user ? <Navigate to = "/" /> : <Login/>}/>
+          <Route path="/register" element={user ? <Navigate to = "/" /> : <Register/>}/>
+          <Route path="/profile/:username" element={<Profile/>}/>
+        </Routes>
+      </Router>
+  );
+}
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+export default App;
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ライセンス
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+MIT License
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## MERMAIDによる構成図
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```mermaid
+graph LR;
+    A[App] -- import --> B[Home]
+    A -- import --> C[Login]
+    A -- import --> D[Profile]
+    A -- import --> E[Register]
+    A -- import --> F[Router]
+    F -- import --> G[Navigate]
+    F -- import --> H[Route]
+    F -- import --> I[Routes]
+    F -- import --> J[useContext]
+    F -- import --> K[AuthContext]
+```
